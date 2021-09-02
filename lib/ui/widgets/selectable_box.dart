@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class SelectableBox extends StatelessWidget {
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final String title;
   final bool isSelected;
   final Function onTap;
   EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
 
   SelectableBox({
     this.height = 50,
-    this.width = 70,
+    this.width,
     this.margin,
+    this.padding,
     required this.title,
     this.isSelected = false,
     required this.onTap,
@@ -28,10 +30,11 @@ class SelectableBox extends StatelessWidget {
         height: height,
         width: width,
         margin: margin,
+        padding: padding,
         decoration: BoxDecoration(
           color: isSelected
               ? Theme.of(context).primaryColor
-              : Theme.of(context).primaryColor.withOpacity(0.5),
+              : Theme.of(context).primaryColor.withOpacity(0.4),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(

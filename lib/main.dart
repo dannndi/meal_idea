@@ -5,6 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:meal_idea/nav_routes.dart';
 import 'package:meal_idea/ui/pages/get_started/get_started_page.dart';
 import 'package:meal_idea/ui/pages/home/home_page.dart';
+import 'package:meal_idea/ui/pages/search/search_page.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
             }
           },
         ),
-        GetPage(name: NavRoutes.Home, page: () => HomePage())
+        GetPage(name: NavRoutes.Home, page: () => HomePage()),
+        GetPage(name: NavRoutes.SearchInput, page: () => SearchInputPage())
       ],
     );
   }
