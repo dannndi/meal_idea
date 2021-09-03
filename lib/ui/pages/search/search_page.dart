@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:meal_idea/ui/pages/home/home_controller.dart';
 import 'package:meal_idea/ui/pages/search/search_controller.dart';
 
+import '../../../nav_routes.dart';
+
 class SearchInputPage extends StatefulWidget {
   @override
   _SearchInputPageState createState() => _SearchInputPageState();
@@ -183,7 +185,13 @@ class OnDone extends StatelessWidget {
           itemCount: searchController.mealsResult.length,
           itemBuilder: (context, index) {
             return InkWell(
-              onTap: () {},
+              onTap: () => Get.toNamed(
+                NavRoutes.Detail,
+                arguments: {
+                  "id": searchController.mealsResult[index].idMeal,
+                  "detail": searchController.mealsResult[index],
+                },
+              ),
               child: Container(
                 height: 60,
                 margin: EdgeInsets.symmetric(

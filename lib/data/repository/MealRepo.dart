@@ -109,4 +109,70 @@ class MealRepo {
     }
     return meals;
   }
+
+  Future<MealDetail?> getMealsById(String id) async {
+    MealDetail? meals = MealDetail();
+    try {
+      var response = await client.getMealById(id);
+      var res = response.meals.first;
+      meals = MealDetail(
+        idMeal: res.idMeal,
+        strMeal: res.strMeal,
+        strDrinkAlternate: res.strDrinkAlternate,
+        strCategory: res.strCategory,
+        strArea: res.strArea,
+        strInstructions: res.strInstructions,
+        strMealThumb: res.strMealThumb,
+        strTags: res.strTags,
+        strYoutube: res.strYoutube,
+        strIngredient1: res.strIngredient1,
+        strIngredient2: res.strIngredient2,
+        strIngredient3: res.strIngredient3,
+        strIngredient4: res.strIngredient4,
+        strIngredient5: res.strIngredient5,
+        strIngredient6: res.strIngredient6,
+        strIngredient7: res.strIngredient7,
+        strIngredient8: res.strIngredient8,
+        strIngredient9: res.strIngredient9,
+        strIngredient10: res.strIngredient10,
+        strIngredient11: res.strIngredient11,
+        strIngredient12: res.strIngredient12,
+        strIngredient13: res.strIngredient13,
+        strIngredient14: res.strIngredient14,
+        strIngredient15: res.strIngredient15,
+        strIngredient16: res.strIngredient16,
+        strIngredient17: res.strIngredient17,
+        strIngredient18: res.strIngredient18,
+        strIngredient19: res.strIngredient19,
+        strIngredient20: res.strIngredient20,
+        strMeasure1: res.strMeasure1,
+        strMeasure2: res.strMeasure2,
+        strMeasure3: res.strMeasure3,
+        strMeasure4: res.strMeasure4,
+        strMeasure5: res.strMeasure5,
+        strMeasure6: res.strMeasure6,
+        strMeasure7: res.strMeasure7,
+        strMeasure8: res.strMeasure8,
+        strMeasure9: res.strMeasure9,
+        strMeasure10: res.strMeasure10,
+        strMeasure11: res.strMeasure11,
+        strMeasure12: res.strMeasure12,
+        strMeasure13: res.strMeasure13,
+        strMeasure14: res.strMeasure14,
+        strMeasure15: res.strMeasure15,
+        strMeasure16: res.strMeasure16,
+        strMeasure17: res.strMeasure17,
+        strMeasure18: res.strMeasure18,
+        strMeasure19: res.strMeasure19,
+        strMeasure20: res.strMeasure20,
+        strSource: res.strSource,
+        strImageSource: res.strImageSource,
+        strCreativeCommonsConfirmed: res.strCreativeCommonsConfirmed,
+        dateModified: res.dateModified,
+      );
+    } catch (e) {
+      meals = null;
+    }
+    return meals;
+  }
 }

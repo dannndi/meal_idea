@@ -22,4 +22,9 @@ abstract class MealServices {
   Future<SearchResponse> getMealByQuery(
     @Query("s") String query,
   );
+
+  @GET("/1/lookup.php")
+  Future<SearchResponse> getMealById(
+    @Query("i") String id,
+  );
 }

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:meal_idea/nav_routes.dart';
+import 'package:meal_idea/ui/pages/detail_meal/detail_meal_page.dart';
 import 'package:meal_idea/ui/pages/get_started/get_started_page.dart';
 import 'package:meal_idea/ui/pages/home/home_page.dart';
 import 'package:meal_idea/ui/pages/search/search_page.dart';
@@ -40,7 +41,8 @@ class MyApp extends StatelessWidget {
           },
         ),
         GetPage(name: NavRoutes.Home, page: () => HomePage()),
-        GetPage(name: NavRoutes.SearchInput, page: () => SearchInputPage())
+        GetPage(name: NavRoutes.SearchInput, page: () => SearchInputPage()),
+        GetPage(name: NavRoutes.Detail, page: () => DetailMealPage())
       ],
     );
   }

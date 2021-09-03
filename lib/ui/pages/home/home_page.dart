@@ -137,34 +137,44 @@ class HomePage extends StatelessWidget {
                       crossAxisCount: 4,
                       itemCount: homeController.meals.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color:
-                                Theme.of(context).primaryColor.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  homeController.meals[index].strMealThumb),
-                              fit: BoxFit.fill,
-                            ),
+                        return GestureDetector(
+                          onTap: () => Get.toNamed(
+                            NavRoutes.Detail,
+                            arguments: {
+                              "id": homeController.meals[index].idMeal,
+                              "detail": null,
+                            },
                           ),
                           child: Container(
-                            padding: EdgeInsets.fromLTRB(10, 0, 10, 16),
                             decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .primaryColor
+                                  .withOpacity(0.2),
                               borderRadius: BorderRadius.circular(15),
-                              gradient: LinearGradient(
-                                colors: [Colors.black, Colors.transparent],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.center,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    homeController.meals[index].strMealThumb),
+                                fit: BoxFit.fill,
                               ),
                             ),
-                            alignment: Alignment.bottomLeft,
-                            child: Text(
-                              homeController.meals[index].strMeal,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(10, 0, 10, 16),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                gradient: LinearGradient(
+                                  colors: [Colors.black, Colors.transparent],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.center,
+                                ),
+                              ),
+                              alignment: Alignment.bottomLeft,
+                              child: Text(
+                                homeController.meals[index].strMeal,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
