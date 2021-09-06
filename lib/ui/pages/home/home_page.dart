@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:meal_idea/nav_routes.dart';
@@ -11,12 +12,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
       body: Padding(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top,
@@ -27,7 +24,7 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(top: 15, left: 24, right: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,12 +51,17 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.favorite_outline,
+                  GestureDetector(
+                    onTap: () => Get.toNamed(NavRoutes.Favorite),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      child: Icon(
+                        Icons.favorite_border,
+                        color: Colors.black,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

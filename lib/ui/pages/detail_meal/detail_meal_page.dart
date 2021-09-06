@@ -77,11 +77,23 @@ class _DetailMealPageState extends State<DetailMealPage> {
         elevation: elevation,
         backgroundColor: appBarColor,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.favorite_outline),
-            color: Colors.black,
-            iconSize: 20,
+          Obx(
+            () => IconButton(
+              onPressed: () {
+                if (detailController.mealIsFavorite.value) {
+                  detailController.deleteFavorite();
+                } else {
+                  detailController.addFavorite();
+                }
+              },
+              icon: detailController.mealIsFavorite.value
+                  ? Icon(Icons.favorite)
+                  : Icon(Icons.favorite_outline),
+              color: detailController.mealIsFavorite.value
+                  ? Colors.red
+                  : Colors.black,
+              iconSize: 20,
+            ),
           ),
         ],
       ),
@@ -327,11 +339,11 @@ class OnDone extends StatelessWidget {
   }
 
   Widget buildListTile(String? item, String? value) {
-    if (item == null && value == null) {
+    if (item == null || value == null) {
       return SizedBox();
     }
 
-    if (item!.trim().isEmpty && value!.trim().isEmpty) {
+    if (item.trim().isEmpty && value.trim().isEmpty) {
       return SizedBox();
     }
 
